@@ -1,0 +1,224 @@
+:root {
+  --red: hsl(0, 100%, 74%);
+  --green: hsl(154, 59%, 51%);
+  --blue: hsl(248, 32%, 49%);
+  --dark-blue: hsl(249, 10%, 26%);
+  --grayish-blue: hsl(246, 25%, 77%);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: url("./images/bg-intro-mobile.png") no-repeat center,
+    linear-gradient(90deg, var(--red), var(--red));
+  display: grid;
+  grid-template-rows: auto 15px;
+}
+
+.wrapper {
+  padding: 1em;
+  color: white;
+  font-family: "Poppins";
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding:0.2em;
+}
+
+.first-part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.head {
+  max-width: 25ch;
+  font-size: 1.1em;
+  margin-bottom: 1em;
+  line-height: 1.8em;
+}
+
+.text {
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.form-container {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.offer {
+  background-color: var(--blue);
+  width: 100%;
+  text-align: center;
+  padding: 1.15em;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 1.3em;
+  cursor: pointer;
+}
+
+.offer .offer-text {
+  font-size: 0.83em;
+  max-width: 18ch;
+  font-weight: 500;
+}
+
+.offer .offer-text > span {
+  font-weight: 700;
+}
+
+form {
+  padding: 1.1em;
+  background-color: white;
+  color: var(--grayish-blue);
+  border-radius: 10px;
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+form > * {
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 0.9em 0.6em;
+  font-family: 'Poppins';
+}
+
+#fname, #lname, #email, #pass{
+    outline: none;
+    border: 1px solid hsl(0, 0%, 70%);
+    border-radius: 5px;
+}
+
+#fname:focus, #lname:focus, #email:focus, #pass:focus{
+    border: 1px solid hsl(0, 0%, 20%);
+    border-radius: 5px;
+}
+
+#fname.error, #lname.error, #email.error, #pass.error{
+    border: 2px solid var(--red);
+    background: url('./images/icon-error.svg') no-repeat 95%;
+    background-size: 5%;
+    color: var(--red);
+    position: relative;
+}
+
+#fname.error::after, #lname.error::after, #email.error::after, #pass.error::after{
+    content: "first anme cannot be empty";
+    color: var(--red);
+    position: absolute;
+}
+
+form > *::placeholder {
+  font-family: "Poppins";
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+label{
+    visibility:  hidden;
+    position: relative;
+    color: var(--red);
+    font-style: italic;
+    font-size: 0.7em;
+    font-weight: 500;
+    left: 55%;
+    top:-4%;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+}
+
+label.error{
+    visibility: visible;
+}
+
+form #submit {
+  background-color: var(--green);
+  border-radius: 6px;
+  box-shadow: 0 3px 0 hsl(154, 59%, 41%);
+  border: none;
+  outline: none;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+form #submit:active{
+    background-color: hsl(154, 59%, 45%);
+}
+
+form p {
+  font-size: 0.7em;
+  text-align: center;
+  margin: 0;
+  font-weight: 500;
+  padding: 0.9em 0.6em 0;
+}
+
+form p > span {
+  color: var(--red);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 400px) {
+  body {
+    background: url("./images/bg-intro-desktop.png") no-repeat center,
+      linear-gradient(90deg, var(--red), var(--red));
+    background-size: cover, 100%;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .container {
+    max-width: unset;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .first-part {
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    max-width: 450px;
+    margin-bottom: 0;
+  }
+
+  .head {
+    font-size: 1.6em;
+  }
+
+  .form-container {
+    margin-top: 0;
+    max-width: 470px;
+  }
+
+  .offer .offer-text {
+    max-width: unset;
+  }
+
+  form {
+    padding: 2em;
+  }
+}
